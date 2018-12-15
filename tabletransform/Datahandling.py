@@ -8,8 +8,8 @@ import sys
 import re
 import itertools
 
-source_path = r'dataset\source\source1.csv'
-target_path = r'dataset\target\target1.csv'
+source_path = r'dataset\source\source15.csv' #change the path based on what table one wants to test
+target_path = r'dataset\target\target15.csv' #
 
 source_file = pd.read_csv(source_path, delimiter=',')
 target_file = pd.read_csv(target_path, delimiter=',')
@@ -100,7 +100,9 @@ Tf1 = TransformationSet.transform_1(X)
 Tf_set = [Tf1, Tf2, Tf3, Tf4, Tf6, Tf7, Tf8, Tf9, Tf10, Tf11, Tf12, Tf13, Tf14, Tf15]
 
 best_transform_index, best_transformed_set = best_transformation(Tf_set, Y)
-best_transform_index = best_transform_index +1
+best_transform_index = best_transform_index +1 #contains the id of best possible transformation for given table.
+
+#Example: if Tf15 comes out to be the best transformation for a given input table, best_transform_index will contain 15, this will be printed at the end of the program as well.
 
 
 
@@ -110,7 +112,7 @@ TY = Y
 # TX['transform'] = Tf15
 
 TX = TX.reset_index(drop=True)
-TY = TY.reset_index(drop=True)
+TY = TY.reset_index(drop=True) # we use TX, TY for performing final join operations, this was done individually for each given input pair of tables.
 
 print('index = ')
 print(best_transform_index)
