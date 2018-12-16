@@ -27,7 +27,7 @@ def fuzzmatch (source_file, target_file):
     source_new_df = pd.DataFrame(columns=[column for column in source_file])
     target_new_df = pd.DataFrame(columns=[column for column in target_file])
     # mapping={}
-    fuzzy_threshold = 0.275
+    fuzzy_threshold = 0.125
 
     for i, row_source in source_file.iterrows():
         fuzzymatch = fuzzyset.FuzzySet()
